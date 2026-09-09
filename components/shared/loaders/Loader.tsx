@@ -1,0 +1,20 @@
+type Props = {
+  size?: "sm" | "lg";
+};
+
+export default function Loader(props: Props) {
+  const size = props.size ?? "sm";
+
+  const sizeClasses = size === "lg" ? "h-16 w-16 border-4" : "h-6 w-6 border-2";
+
+  return (
+    <div
+      className={`
+        ${sizeClasses}
+        animate-spin rounded-full
+        border-t-transparent border-solid border-font_dark
+      `}
+      role="status"
+    ></div>
+  );
+}
