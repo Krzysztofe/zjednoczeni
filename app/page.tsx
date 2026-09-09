@@ -34,7 +34,7 @@ export default async function HomePage() {
   console.log(posts);
 
   return (
-    <main className="">
+    <main className="container">
       sssssssssssss
       <Button message="Click me" />
       <ul className="flex flex-col gap-4 mt-10">

@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import Icon from "@/components/shared/Icon";
-import MenuLink from "./MenuLink";
+
 import { headerHeight } from "@/data/numbers";
 import Button from "../shared/buttons/Button";
 

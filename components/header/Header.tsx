@@ -6,7 +6,7 @@ import MobileMenu from "./MobileMenu";
 const Header = () => {
   return (
     <header className="sticky top-0 z-20 bg-bg-dark">
-      <div className="_container flex items-center justify-between">
+      <div className="container flex items-center justify-between">
         <Link href="/" className="block">
           <Image
             src="/icons/logo.png"
