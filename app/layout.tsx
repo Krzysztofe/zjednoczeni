@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Oswald } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({
+const oswald = Oswald({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-oswald",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Tytuł",
-  description: "Opis",
+  title: "MZZP Zjednoczemi",
+  description: "Strona związku zawodowego MZZP Zjednoczemi",
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" className={`${inter.variable} h-full antialiased`}>
+    <html lang="pl" className={`${oswald.variable} h-full antialiased`}>
       <body className="">
         <a
           href="#main-content"

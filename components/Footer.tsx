@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="font-bold">MZZP Zjednoczeni</div>
           <div className="mt-6">
             Międzyzakładowy Związek Zawodowy Pracowników działający w grupie
-            Elbest — ochrona, hotelarstwo, przedszkola zakładowe
+            Elbest - ochrona, hotelarstwo, przedszkola zakładowe
           </div>
         </div>
         <div>
@@ -21,11 +21,12 @@ const Footer = () => {
           </div>
 
           <ButtonLink
-            icon={<Icon icon={"facebook"} size={20} className={`bg-white`} />}
             link={"https://www.facebook.com/MzzpZjednoczeni"}
-            message="MZZP – Zjednoczeni"
             className="flex gap-2 items-center"
-          />
+          >
+            {<Icon icon={"facebook"} size={20} className={`bg-white`} />}
+            MZZP Zjednoczeni
+          </ButtonLink>
         </div>
       </div>
     </footer>

@@ -18,7 +18,7 @@
   --text-2xs: 1rem;
   --text-xs: 1.2rem;
   --text-sm: 1.2rem;
-  --text-base: 1.2rem;
+  --text-base: 1.6rem;
   --text-lg: 1.8rem;
   --text-xl: 2.2rem;
   --text-2xl: 3.8rem;
@@ -74,30 +74,27 @@ html {
 body {
   font-size: var(--text-base);
   color: var(--color-font-dark);
+  font-family: var(--font-oswald);
+  background-color: #ededee;
 }
 
 .container {
   width: 100%;
   max-width: var(--max-width);
   margin-inline: auto;
+  padding-inline: 1rem;
 }
 
-@media (max-width: 1350px) {
+@media (min-width: 750px) {
   .container {
-    padding-inline: 3rem;
-  }
-}
-
-@media (max-width: 500px) {
-  .container {
-    padding-inline: 1.5rem;
+    padding-inline: 2rem;
   }
 }
 
 .btn-primary {
-  @apply border border-accent bg-accent px-12 py-5 text-white hover:!bg-white hover:text-accent;
+  @apply border border-accent bg-accent font-bold px-12 py-5 text-white hover:!bg-white hover:text-accent;
 }
 
-.btn-primary-rounded {
-  @apply rounded-full border border-accent bg-accent px-4 py-2 text-sm text-white hover:bg-white hover:text-accent md:px-8;
+.btn-primary-empty {
+  @apply border border-font-dark bg-white font-bold px-12 py-5 hover:!bg-font-dark hover:text-white;
 }

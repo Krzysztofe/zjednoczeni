@@ -12,7 +12,7 @@ const MobileMenu = () => {
   const toggleClass = isOpen ? "translate-x-0" : "translate-x-full";
 
   return (
-    <div className="relative lg:hidden">
+    <div className="relative lg:hidden h-full">
       {isOpen && (
         <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
       )}
@@ -26,7 +26,7 @@ const MobileMenu = () => {
       />
 
       <nav
-        className={`fixed bg-bg-dark top-0 right-0 z-40 h-screen w-80 transform shadow-xl transition-transform duration-300 ease-in-out ${toggleClass} z-20 lg:hidden`}
+        className={`fixed bg-bg-dark top-0 right-0 z-40 h-screen  w-80 transform shadow-xl transition-transform duration-300 ease-in-out ${toggleClass} z-20 lg:hidden`}
       >
         {" "}
         <Button
@@ -37,11 +37,13 @@ const MobileMenu = () => {
           ariaLabel={isOpen ? "Zamknij menu" : "Otwórz menu"}
           aria-expanded={isOpen}
         />
-        <ul className="mt-24 flex flex-col gap-20 px-6">
-          {navLinks.map(({ text, link }) => (
-            <MenuLink key={link} text={text} link={link} />
-          ))}
-        </ul>
+        <div className="overflow-y-auto h-full">
+          <ul className="mt-24 flex flex-col gap-16 px-6">
+            {navLinks.map(({ text, link }) => (
+              <MenuLink key={link} text={text} link={link} />
+            ))}
+          </ul>
+        </div>
       </nav>
     </div>
   );
