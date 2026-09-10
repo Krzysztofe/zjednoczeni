@@ -4,15 +4,15 @@ import Icon from "./shared/Icon";
 const Footer = () => {
   return (
     <footer className="bg-bg-dark">
-      <div className="container text-white py-20 flex justify-between">
-        <div className="w-1/2 md:w-1/3">
+      <div className="container text-white py-26 flex flex-col gap-20 sm:flex-row">
+        <div className="sm:w-1/2 md:w-1/3">
           <div className="font-bold">MZZP Zjednoczeni</div>
           <div className="mt-6">
             Międzyzakładowy Związek Zawodowy Pracowników działający w grupie
             Elbest - ochrona, hotelarstwo, przedszkola zakładowe
           </div>
         </div>
-        <div>
+        <div className="md:ml-40">
           <div className="font-bold">Kontakt</div>
           <div className="mt-6 flex gap-2 items-center">
             {" "}
