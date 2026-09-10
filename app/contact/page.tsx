@@ -6,8 +6,8 @@ const ContactPage = () => {
     <>
       <TopSection
         title="Kontakt"
-        header="Napisz albo zadzwoń"
-        paragraph="Odpowiadamy zwykle w ciągu 1–2 dni roboczych."
+        header="Zadzwoń albo napisz"
+        paragraph="Odpowiadamy zwykle w ciągu 1-2 dni roboczych."
       />
 
       <section>
