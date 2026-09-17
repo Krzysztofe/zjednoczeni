@@ -17,7 +17,7 @@ const MenuLink = ({ text, link, onClick }: Props) => {
     <li onClick={onClick}>
       <ButtonLink
         link={link}
-        className={`relative font-semibold !text-sm text-white
+        className={`relative font-semibold text-white
           after:absolute after:-bottom-1 after:left-0 after:h-[1px]
           after:bg-white after:transition-all after:duration-300
           ${isActive ? "!text-accent" : "after:w-0 hover:after:w-full"}

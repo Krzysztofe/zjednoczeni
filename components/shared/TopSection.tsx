@@ -8,11 +8,11 @@ type Props = {
 
 const TopSection = ({ title, header, paragraph }: Props) => {
   return (
-    <section className="py-16">
-      <div className="container">
+    <section className="">
+      <div className="container py-22">
         <div className="text-accent text-sm">{title}</div>
         <h1 className="text-2xl font-bold mb-5">{header}</h1>
-        <p className="w-2/3">{paragraph}</p>
+        <p className="md:w-2/3">{paragraph}</p>
         <SideBorder />
       </div>
     </section>

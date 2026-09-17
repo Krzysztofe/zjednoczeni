@@ -67,19 +67,19 @@ export default async function HomePage() {
       <section className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 py-10">
         <div className="p-10 border border-bg-dark border-l-0 border-r-0 sm:border-r">
           <div className="text-accent text-xl">2009</div>
-          <div className="text-sm">rok powstania związku</div>
+          <div>rok powstania związku</div>
         </div>
         <div className="p-10 border border-bg-dark border-l-0 border-r-0 md:border-r">
           <div className="text-accent text-xl">700+</div>
-          <div className="text-sm">reprezentowanych pracowników</div>
+          <div>reprezentowanych pracowników</div>
         </div>
         <div className="p-10 border border-bg-dark border-l-0 border-r-0 sm:border-r">
           <div className="text-accent text-xl">3</div>
-          <div className="text-sm">branże: ochrona, hotelarstwo, edukacja</div>
+          <div>branże: ochrona, hotelarstwo, edukacja</div>
         </div>
         <div className="p-10 border border-bg-dark border-l-0 border-r-0">
           <div className="text-accent text-xl">24/7</div>
-          <div className="text-sm">kontakt w sprawach pilnych</div>
+          <div>kontakt w sprawach pilnych</div>
         </div>
       </section>
       <section className="container  py-16">
@@ -120,23 +120,23 @@ export default async function HomePage() {
           <div className="p-6 border border-bg-dark">
             <Icon icon={"shield"} size={30} className={`!bg-accent mb-8`} />
             <div className="font-bold mb-4 text-lg">Ochrona zatrudnienia</div>
-            <p className="text-sm">
+            <p>
               Negocjujemy Zakładowe Układy Zbiorowe Pracy i sprzeciwiamy się ich
               jednostronnemu wypowiadaniu.
             </p>
           </div>
           <div className="p-6 border border-bg-dark">
             <Icon icon={"house"} size={30} className={`!bg-accent mb-8`} />
-            <div className="font-bold mb-4">Sprawy socjalne</div>
-            <p className="text-sm">
+            <div className="font-bold mb-4 text-lg">Sprawy socjalne</div>
+            <p>
               Bronimy programów PPE, ubezpieczeń grupowych i innych świadczeń,
               gdy pracodawca chce je ograniczyć.
             </p>
           </div>
           <div className="p-6 border border-bg-dark">
             <Icon icon={"trend"} size={30} className={`!bg-accent mb-8`} />
-            <div className="font-bold mb-4">Warunki pracy</div>
-            <p className="text-sm">
+            <div className="font-bold mb-4 text-lg">Warunki pracy</div>
+            <p>
               Reagujemy, gdy czas pracy, upały czy obciążenie obowiązkami
               przekraczają to, co dopuszcza prawo.
             </p>

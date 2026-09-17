@@ -7,7 +7,7 @@ const ForMembersPage = () => {
       <TopSection
         title="Dla członków"
         header="Dołącz do Zjednoczonych"
-        paragraph="Członkostwo jest dobrowolne i poufne wobec pracodawcy. Im więcej nas, tym silniejsza jest nasza pozycja w rozmowach o warunkach pracy."
+        paragraph="Członkostwo jest dobrowolne i nieznane pracodawcy. Im więcej nas, tym silniejsza jest nasza pozycja w rozmowach o warunkach pracy."
       />
       <section>
         {" "}
@@ -22,7 +22,7 @@ const ForMembersPage = () => {
           <div className="bg-white p-10">
             <h3 className="font-bold mb-6">Reprezentacja w negocjacjach</h3>
             <p>
-              Wsparcie w sprawach pracowniczych — od rozmowy dyscyplinującej po
+              Wsparcie w sprawach pracowniczych - od rozmowy dyscyplinującej po
               spór sądowy.
             </p>
           </div>
@@ -75,7 +75,7 @@ const ForMembersPage = () => {
                 Przekaż deklarację przedstawicielowi
               </h3>
               <div>
-                Twoje członkostwo jest poufne — pracodawca nie jest informowany
+                Twoje członkostwo jest poufne - pracodawca nie jest informowany
                 o przynależności związkowej.
               </div>
             </div>

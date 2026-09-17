@@ -28,14 +28,14 @@ const AboutPage = () => {
             <div className="mb-10">
               <h2 className="font-bold text-lg">Jak działamy</h2>
               <p className="">
-                Prowadzimy bieżący dialog z pracodawcą, a gdy to nie wystarcza —
+                Prowadzimy bieżący dialog z pracodawcą, a gdy to nie wystarcza -
                 składamy formalne zawiadomienia do instytucji nadzorczych,
                 organizujemy pikiety i współpracujemy z innymi związkami
                 zawodowymi w grupie. Informujemy członków na bieżąco, bez
                 ozdabiania trudnych wiadomości.
               </p>
             </div>
-            <div className="mb-10">
+            <div className="mb-30">
               <h2 className="font-bold text-lg">Z kim współpracujemy</h2>
               <p className="">
                 Utrzymujemy kontakt z pozostałymi organizacjami związkowymi
@@ -48,7 +48,7 @@ const AboutPage = () => {
             <div
               className="border-l-2 pl-10 py-10 relative after:absolute
     after:-left-[11px]
-    after:top-10
+    after:top-11
     after:h-8
     after:w-8
     after:rounded-full
@@ -117,7 +117,7 @@ const AboutPage = () => {
             <div className="p-6 bg-white">
               <h3 className="font-bold mb-4 text-lg">Zasięg działania</h3>
               <p className="border-b-1 mb-4 py-4">
-                Dział ochrony — obiekty przemysłowe i biurowe
+                Dział ochrony - obiekty przemysłowe i biurowe
               </p>
               <p className="border-b-1 mb-4 py-4">Elbest Hotele</p>
               <p className="">Przedszkola zakładowe</p>

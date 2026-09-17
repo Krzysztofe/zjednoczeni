@@ -18,7 +18,7 @@ const ContactPage = () => {
             <div>733 654 323</div>
           </div>
           <div>
-            <div className="pb-3 text-accent">E-MAil</div>
+            <div className="pb-3 text-accent">E-MAIl</div>
             <div>zzpelbest@gmail.com</div>
           </div>
           <div>

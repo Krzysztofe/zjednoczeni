@@ -91,7 +91,7 @@ const ActivityPage = () => {
               </h2>
               <p className="">
                 Pomagamy członkom związku w sprawach dotyczących czasu pracy,
-                warunków BHP, wynagrodzenia czy nieuzasadnionego traktowania —
+                warunków BHP, wynagrodzenia czy nieuzasadnionego traktowania -
                 od rozmowy z przełożonym po pismo formalne.
               </p>{" "}
             </div>

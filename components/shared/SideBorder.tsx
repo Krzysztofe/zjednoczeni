@@ -1,5 +1,5 @@
 const SideBorder = () => {
-  return <div className="border-b-3 mt-16"></div>;
+  return <div className="border-b-3 mt-22"></div>;
 };
 
 export default SideBorder;
