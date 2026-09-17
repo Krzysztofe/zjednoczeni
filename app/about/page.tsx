@@ -106,7 +106,7 @@ const AboutPage = () => {
     after:rounded-full
     after:bg-accent"
             >
-              <div className="text-accent">2024–2026</div>
+              <div className="text-accent">2024-2026</div>
               <h3 className="font-bold my-4">Spór o układ zbiorowy</h3>
               <p>
                 Sprzeciw wobec wypowiedzenia Zakładowego Układu Zbiorowego Pracy

@@ -19,19 +19,19 @@ type Post = {
 };
 
 export default async function HomePage() {
-  // const response = await fetch(
-  //   `${process.env.API_BASE_URL}/posts?_fields=id,slug,date,title,content,author,tags`,
-  //   {
-  //     cache: "no-store",
-  //   },
-  // );
+  const response = await fetch(
+    `${process.env.API_BASE_URL}/posts?_fields=id,slug,date,title,content,author,tags`,
+    {
+      cache: "no-store",
+    },
+  );
 
-  // if (!response.ok) {
-  //   throw new Error("Nie udało się pobrać postów.");
-  // }
+  if (!response.ok) {
+    throw new Error("Nie udało się pobrać postów.");
+  }
 
-  // const posts: Post[] = await response.json();
-  // console.log(posts);
+  const posts: Post[] = await response.json();
+  console.log(posts);
 
   return (
     <>
@@ -54,7 +54,7 @@ export default async function HomePage() {
               Dołącz do związku
             </ButtonLink>
             <ButtonLink
-              link={"for-members"}
+              link={"/contact"}
               className="w-fit "
               variant="primary-empty"
             >
@@ -101,7 +101,7 @@ export default async function HomePage() {
           </ButtonLink>
         </div>
 
-        {/* <ul className="flex flex-col gap-4 mt-10">
+        <ul className="flex flex-col gap-4 mt-10">
           {posts.map((post) => (
             <li key={post.id}>
               <h2>{post.title.rendered}</h2>
@@ -110,7 +110,7 @@ export default async function HomePage() {
               />
             </li>
           ))}
-        </ul> */}
+        </ul>
       </section>
       <section className="container">
         <h2 className="text-xl font-bold border-b-3 mb-10 pb-4">
