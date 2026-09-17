@@ -1,4 +1,3 @@
-import SideBorder from "@/components/shared/SideBorder";
 import TopSection from "@/components/shared/TopSection";
 
 const AboutPage = () => {

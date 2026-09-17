@@ -40,7 +40,12 @@ const MobileMenu = () => {
         <div className="overflow-y-auto h-full">
           <ul className="mt-24 flex flex-col gap-16 px-6">
             {navLinks.map(({ text, link }) => (
-              <MenuLink key={link} text={text} link={link} />
+              <MenuLink
+                key={link}
+                text={text}
+                link={link}
+                onClick={() => setOpen(false)}
+              />
             ))}
           </ul>
         </div>

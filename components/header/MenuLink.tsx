@@ -6,14 +6,15 @@ import ButtonLink from "../shared/buttons/ButtonLink";
 type Props = {
   text: string;
   link: string;
+  onClick?: () => void;
 };
 
-const MenuLink = ({ text, link }: Props) => {
+const MenuLink = ({ text, link, onClick }: Props) => {
   const pathname = usePathname();
   const isActive = pathname === link;
 
   return (
-    <li>
+    <li onClick={onClick}>
       <ButtonLink
         link={link}
         className={`relative font-semibold !text-sm text-white
