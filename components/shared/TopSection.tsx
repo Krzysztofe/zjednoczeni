@@ -12,7 +12,7 @@ const TopSection = ({ title, header, paragraph }: Props) => {
       <div className="container py-22">
         <div className="text-accent text-sm">{title}</div>
         <h1 className="text-2xl font-bold mb-5">{header}</h1>
-        <p className="md:w-2/3">{paragraph}</p>
+        <p className="md:w-2/3 text-lg">{paragraph}</p>
         <SideBorder />
       </div>
     </section>
