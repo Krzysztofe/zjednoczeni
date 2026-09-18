@@ -11,7 +11,7 @@ type Props = {
 
 const MenuLink = ({ text, link, onClick }: Props) => {
   const pathname = usePathname();
-  const isActive = pathname === link;
+  const isActive = pathname === link || pathname.startsWith(`${link}/`);
 
   return (
     <li onClick={onClick}>

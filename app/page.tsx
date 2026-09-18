@@ -2,20 +2,10 @@ import { Metadata } from "next";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
 import SideBorder from "@/components/shared/SideBorder";
+import { Post } from "./models/postModel";
 
 export const metadata: Metadata = {
   title: "MZZP Zjednoczeni - strona główna",
-};
-
-type Post = {
-  id: number;
-  slug: string;
-  title: {
-    rendered: string;
-  };
-  content: {
-    rendered: string;
-  };
 };
 
 export default async function HomePage() {
@@ -104,10 +94,12 @@ export default async function HomePage() {
         <ul className="flex flex-col gap-4 mt-10">
           {posts.map((post) => (
             <li key={post.id}>
-              <h2>{post.title.rendered}</h2>
-              <div
-                dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-              />
+              <ButtonLink link={`/news/${post.slug}`}>
+                <h2>{post.title.rendered}</h2>
+                <div
+                  dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+                />
+              </ButtonLink>
             </li>
           ))}
         </ul>
