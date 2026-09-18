@@ -1,4 +1,5 @@
 import { Post } from "@/app/models/postModel";
+import { formatDate } from "@/app/utils/formatDate";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
 import TopSection from "@/components/shared/TopSection";
@@ -38,14 +39,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString("pl-PL", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-};
-
 const PostPage = async (props: Props) => {
   const { postSlug } = await props.params;
 
@@ -66,7 +59,7 @@ const PostPage = async (props: Props) => {
   if (!post) return <div>Wpis nie istnieje</div>;
 
   return (
-    <>
+    <section className="mt-20">
       {/* <TopSection
         title="Aktualności"
         header="Komunikaty i sprawy związkowe"
@@ -75,7 +68,7 @@ const PostPage = async (props: Props) => {
       <div className="container">
         <ButtonLink
           link={"/news"}
-          className="w-fit h-fit mb-16 text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
+          className="w-fit h-fit mb-10 text-accent flex items-center gap-3 border-b border-transparent hover:border-accent"
           variant="ghost"
         >
           {" "}
@@ -83,7 +76,7 @@ const PostPage = async (props: Props) => {
           Wróć do listy aktualności{" "}
         </ButtonLink>{" "}
         <h2 className="font-bold text-2xl">{post.title.rendered}</h2>
-        <p className="text-sm text-gray-light">{formatDate(post.date)}</p>
+        <p className="text-sm text-gray-light mt-4">{formatDate(post.date)}</p>
         <div
           className="mt-10 mb-30  [&_p]:mb-6
     [&_h2]:text-2xl
@@ -97,7 +90,7 @@ const PostPage = async (props: Props) => {
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />{" "}
       </div>
-    </>
+    </section>
   );
 };
 

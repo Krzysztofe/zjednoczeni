@@ -4,6 +4,7 @@ import Icon from "@/components/shared/Icon";
 import SideBorder from "@/components/shared/SideBorder";
 import { Post } from "./models/postModel";
 import Image from "next/image";
+import { formatDate } from "./utils/formatDate";
 
 export const metadata: Metadata = {
   title: "MZZP Zjednoczeni | strona główna",
@@ -73,7 +74,7 @@ export default async function HomePage() {
           <div>kontakt w sprawach pilnych</div>
         </div>
       </section>
-      <section className="container  py-16">
+      <section className="container  pt-16 pb-30">
         <div className="flex justify-between border-b-3 pb-10">
           <h2 className="text-xl font-bold">Ostatnie aktualności</h2>
           <ButtonLink
@@ -92,7 +93,7 @@ export default async function HomePage() {
           </ButtonLink>
         </div>
 
-        <ul className="flex flex-col gap-4 mt-10">
+        <ul className="flex flex-col gap-4">
           {posts.map((post) => {
             const image = post._embedded?.["wp:featuredmedia"]?.[0];
 
@@ -103,10 +104,10 @@ export default async function HomePage() {
               >
                 <ButtonLink
                   link={`/news/${post.slug}`}
-                  className="text-left flex gap-6"
+                  className="text-left flex flex-col md:flex-row gap-6"
                 >
-                  {image && (
-                    <div className="relative w-60 h-auto shrink-0">
+                  {image ? (
+                    <div className="relative h-100 md:w-100 md:h-auto shrink-0">
                       <Image
                         src={image.source_url}
                         alt={image.alt_text || post.title.rendered}
@@ -114,10 +115,25 @@ export default async function HomePage() {
                         className="object-cover"
                       />
                     </div>
+                  ) : (
+                    <div className="bg-white h-50 md:w-100 md:h-auto shrink-0 flex items-center justify-center">
+                      {" "}
+                      <Image
+                        src="/icons/logoBlack.png"
+                        alt="Logo"
+                        width={150}
+                        height={100}
+                        priority
+                        unoptimized
+                      />
+                    </div>
                   )}
 
                   <div>
-                    <h2 className="font-bold text-lg">{post.title.rendered}</h2>
+                    <p className="text-sm text-gray-light">
+                      {formatDate(post.date)}
+                    </p>
+                    <h2 className="font-bold text-xl">{post.title.rendered}</h2>
 
                     <div
                       dangerouslySetInnerHTML={{
@@ -132,7 +148,7 @@ export default async function HomePage() {
         </ul>
       </section>
       <section className="container">
-        <h2 className="text-xl font-bold border-b-3 mb-10 pb-4">
+        <h2 className="text-xl font-bold border-b-3 mb-10 pb-10">
           Czym się zajmujemy
         </h2>
         <div className="grid md:grid-cols-3 pb-30">

@@ -1,23 +1,3 @@
-// export type Post = {
-//   id: number;
-//   slug: string;
-//   date: string;
-
-//   title: {
-//     rendered: string;
-//   };
-
-//   excerpt: {
-//     rendered: string;
-//   };
-
-//   content: {
-//     rendered: string;
-//   };
-
-//   author: number;
-//   tags: number[];
-// };
 export type Post = {
   id: number;
   slug: string;
