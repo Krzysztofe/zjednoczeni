@@ -98,16 +98,13 @@ export default async function HomePage() {
             const image = post._embedded?.["wp:featuredmedia"]?.[0];
 
             return (
-              <li
-                key={post.id}
-                className="py-16 border-b !border-gray-light md:w-2/3"
-              >
+              <li key={post.id} className="py-16 border-b !border-gray-light">
                 <ButtonLink
                   link={`/news/${post.slug}`}
                   className="text-left flex flex-col md:flex-row gap-6"
                 >
                   {image ? (
-                    <div className="relative h-100 md:w-100 md:h-auto shrink-0">
+                    <div className="relative h-100 md:w-150 md:h-auto shrink-0">
                       <Image
                         src={image.source_url}
                         alt={image.alt_text || post.title.rendered}
@@ -116,7 +113,7 @@ export default async function HomePage() {
                       />
                     </div>
                   ) : (
-                    <div className="bg-white h-50 md:w-100 md:h-auto shrink-0 flex items-center justify-center">
+                    <div className="bg-white h-50 md:w-150 md:h-auto shrink-0 flex items-center justify-center">
                       {" "}
                       <Image
                         src="/icons/logoBlack.png"
@@ -129,11 +126,13 @@ export default async function HomePage() {
                     </div>
                   )}
 
-                  <div>
+                  <div className="pb-20">
                     <p className="text-sm text-gray-light">
                       {formatDate(post.date)}
                     </p>
-                    <h2 className="font-bold text-xl">{post.title.rendered}</h2>
+                    <h2 className="font-bold text-xl ">
+                      {post.title.rendered}
+                    </h2>
 
                     <div
                       dangerouslySetInnerHTML={{
