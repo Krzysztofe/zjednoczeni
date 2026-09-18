@@ -14,7 +14,7 @@ export type Post = {
   content: {
     rendered: string;
   };
-
+  categories: number[];
   author: number;
   tags: number[];
   featured_media: number;

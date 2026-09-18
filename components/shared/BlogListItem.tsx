@@ -9,11 +9,18 @@ type Props = {
 };
 
 const BlogListItem = ({ post, image }: Props) => {
+  const mapCategories: Record<number, string> = {
+    1: "Szkoły i przedszkola",
+    3: "Spółki urzędu miasta",
+    4: "Elbest Security",
+    5: "Elektrownia Bełchatów",
+  };
+
   return (
     <li key={post.id} className="py-16 border-b !border-gray-light">
       <ButtonLink
         link={`/news/${post.slug}`}
-        className="text-left flex flex-col md:flex-row gap-6"
+        className="text-left flex flex-col md:flex-row gap-6 group"
       >
         {image ? (
           <div className="relative h-100 md:w-150 md:h-auto shrink-0">
@@ -39,9 +46,14 @@ const BlogListItem = ({ post, image }: Props) => {
         )}
 
         <div className="pb-20 md:w-1/2">
-          <p className="text-xs text-gray-light">{formatDate(post.date)}</p>
-          <h2 className="font-bold text-xl ">{post.title.rendered}</h2>
-
+          <div></div>
+          <p className="text-xs text-gray-light">
+            {formatDate(post.date)} /{" "}
+            {mapCategories[post.categories[0]] ?? "Inne"}
+          </p>{" "}
+          <h2 className="font-bold text-xl group-hover:text-accent transition-colors">
+            {post.title.rendered}
+          </h2>
           <div
             dangerouslySetInnerHTML={{
               __html: post.excerpt.rendered,
