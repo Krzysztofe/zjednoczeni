@@ -2,6 +2,7 @@ import { formatDate } from "@/app/utils/formatDate";
 import ButtonLink from "./buttons/ButtonLink";
 import Image from "next/image";
 import { Post } from "@/app/models/postModel";
+import { mapBlogCategories } from "@/data/mapBlogCategiries";
 
 type Props = {
   post: Post;
@@ -9,13 +10,6 @@ type Props = {
 };
 
 const BlogListItem = ({ post, image }: Props) => {
-  const mapCategories: Record<number, string> = {
-    1: "Szkoły i przedszkola",
-    3: "Spółki urzędu miasta",
-    4: "Elbest Security",
-    5: "Elektrownia Bełchatów",
-  };
-
   return (
     <li key={post.id} className="py-16 border-b !border-gray-light">
       <ButtonLink
@@ -49,7 +43,7 @@ const BlogListItem = ({ post, image }: Props) => {
           <div></div>
           <p className="text-xs text-gray-light">
             {formatDate(post.date)} /{" "}
-            {mapCategories[post.categories[0]] ?? "Inne"}
+            {mapBlogCategories[post.categories[0]] ?? "Inne"}
           </p>{" "}
           <h2 className="font-bold text-xl group-hover:text-accent transition-colors">
             {post.title.rendered}

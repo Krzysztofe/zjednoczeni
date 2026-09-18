@@ -3,6 +3,7 @@ import { formatDate } from "@/app/utils/formatDate";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
 import TopSection from "@/components/shared/TopSection";
+import { mapBlogCategories } from "@/data/mapBlogCategiries";
 import { Metadata } from "next";
 
 type Props = {
@@ -43,7 +44,7 @@ const PostPage = async (props: Props) => {
   const { postSlug } = await props.params;
 
   const response = await fetch(
-    `${process.env.API_BASE_URL}/posts?slug=${postSlug}&_fields=id,slug,date,title,content,author,tags`,
+    `${process.env.API_BASE_URL}/posts?slug=${postSlug}&_fields=id,slug,date,title,content,author,tags,categories`,
     {
       cache: "no-store",
     },
@@ -55,16 +56,12 @@ const PostPage = async (props: Props) => {
 
   const posts: Post[] = await response.json();
   const post = posts[0];
+
   console.log(post);
   if (!post) return <div>Wpis nie istnieje</div>;
 
   return (
     <section className="mt-20">
-      {/* <TopSection
-        title="Aktualności"
-        header="Komunikaty i sprawy związkowe"
-        paragraph="Bieżące informacje o interwencjach, sporach zbiorowych i decyzjach, które dotyczą pracowników Elbest."
-      /> */}
       <div className="container">
         <ButtonLink
           link={"/news"}
@@ -76,7 +73,10 @@ const PostPage = async (props: Props) => {
           Wróć do listy aktualności{" "}
         </ButtonLink>{" "}
         <h2 className="font-bold text-2xl">{post.title.rendered}</h2>
-        <p className="text-sm text-gray-light mt-4">{formatDate(post.date)}</p>
+        <p className="text-xs text-gray-light">
+          {formatDate(post.date)} /{" "}
+          {mapBlogCategories[post.categories[0]] ?? "Inne"}
+        </p>{" "}
         <div
           className="mt-10 mb-30  [&_p]:mb-6
     [&_h2]:text-2xl
