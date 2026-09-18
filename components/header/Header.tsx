@@ -13,6 +13,7 @@ const Header = () => {
             alt="Logo"
             width={150}
             height={100}
+            className="w-[150px] h-auto"
             priority
             unoptimized
           />

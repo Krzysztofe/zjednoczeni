@@ -3,14 +3,15 @@ import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
 import SideBorder from "@/components/shared/SideBorder";
 import { Post } from "./models/postModel";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "MZZP Zjednoczeni - strona główna",
+  title: "MZZP Zjednoczeni | strona główna",
 };
 
 export default async function HomePage() {
   const response = await fetch(
-    `${process.env.API_BASE_URL}/posts?_fields=id,slug,date,title,content,author,tags`,
+    `${process.env.API_BASE_URL}/posts?per_page=5&_embed`,
     {
       cache: "no-store",
     },
@@ -92,16 +93,42 @@ export default async function HomePage() {
         </div>
 
         <ul className="flex flex-col gap-4 mt-10">
-          {posts.map((post) => (
-            <li key={post.id}>
-              <ButtonLink link={`/news/${post.slug}`}>
-                <h2>{post.title.rendered}</h2>
-                <div
-                  dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-                />
-              </ButtonLink>
-            </li>
-          ))}
+          {posts.map((post) => {
+            const image = post._embedded?.["wp:featuredmedia"]?.[0];
+
+            return (
+              <li
+                key={post.id}
+                className="py-16 border-b !border-gray-light md:w-2/3"
+              >
+                <ButtonLink
+                  link={`/news/${post.slug}`}
+                  className="text-left flex gap-6"
+                >
+                  {image && (
+                    <div className="relative w-60 h-auto shrink-0">
+                      <Image
+                        src={image.source_url}
+                        alt={image.alt_text || post.title.rendered}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+
+                  <div>
+                    <h2 className="font-bold text-lg">{post.title.rendered}</h2>
+
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: post.excerpt.rendered,
+                      }}
+                    />
+                  </div>
+                </ButtonLink>
+              </li>
+            );
+          })}
         </ul>
       </section>
       <section className="container">
