@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BlogListItem from "@/components/shared/BlogListItem";
 import { Post } from "@/app/models/postModel";
+import ButtonLink from "@/components/shared/buttons/ButtonLink";
 
 type Props = {
   posts: Post[];
@@ -61,23 +62,16 @@ const NewsList = ({
           const isActive = currentCategory === category.id;
 
           return (
-            <Link
+            <ButtonLink
               key={category.name}
-              href={createUrl(category.id)}
+              link={createUrl(category.id)}
               className={`
-                inline-flex items-center justify-center
-                !py-2 !px-4
-                border border-accent
-                transition-colors
-                ${
-                  isActive
-                    ? "bg-accent text-white"
-                    : "text-accent hover:bg-accent hover:text-white"
-                }
+                ${isActive && "!bg-font-dark text-white"}
               `}
+              variant="primary-empty"
             >
               {category.name}
-            </Link>
+            </ButtonLink>
           );
         })}
       </div>
@@ -92,40 +86,27 @@ const NewsList = ({
 
       {totalPages > 1 && (
         <div className="flex items-center justify-center gap-2 my-10">
-          <Link
-            href={createUrl(currentCategory, currentPage - 1)}
-            className="
-                inline-flex items-center justify-center
-                px-4 py-2
-                border border-accent
-                text-accent
-                hover:bg-accent
-                hover:text-white
-                transition-colors
-              "
+          <ButtonLink
+            variant="primary-empty"
+            link={createUrl(currentCategory, currentPage - 1)}
           >
             Poprzednia
-          </Link>
+          </ButtonLink>
 
           <span className="px-4 py-2">
             {currentPage} / {totalPages}
           </span>
 
           {
-            <Link
-              href={createUrl(currentCategory, currentPage + 1)}
+            <ButtonLink
+              link={createUrl(currentCategory, currentPage + 1)}
+              variant="primary-empty"
               className="
-                inline-flex items-center justify-center
-                px-4 py-2
-                border border-accent
-                text-accent
-                hover:bg-accent
-                hover:text-white
-                transition-colors
+               
               "
             >
               Następna
-            </Link>
+            </ButtonLink>
           }
         </div>
       )}
