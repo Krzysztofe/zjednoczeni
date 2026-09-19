@@ -29,7 +29,8 @@ const Button = (props: Props) => {
       aria-busy={props.isLoading}
       aria-disabled={props.disabled || props.isLoading}
       aria-expanded={props["aria-expanded"]}
-      className={`block text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${VARIANTS[props.variant ?? "ghost"]} ${props.className ?? ""} `}
+      className={`block 
+cursor-pointer relative text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 ${VARIANTS[props.variant ?? "ghost"]} ${props.className ?? ""} `}
     >
       <span
         className={`${props.isLoading ? "opacity-0" : "opacity-100"} flex items-center justify-center gap-2`}
