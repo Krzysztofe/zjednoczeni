@@ -1,5 +1,5 @@
 import { Post } from "@/app/models/postModel";
-import BlogListItem from "@/components/shared/BlogListItem";
+import BlogListItem from "@/components/shared/blogItem/BlogListItem";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import SearchForm from "./SearchForm";
 
@@ -106,27 +106,23 @@ const NewsList = ({
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex items-center justify-center gap-2 my-10">
-          {currentPage > 1 && (
-            <ButtonLink
-              variant="primary-empty"
-              link={createUrl(currentCategory, currentPage - 1, search)}
-            >
-              Poprzednia
-            </ButtonLink>
-          )}
+          <ButtonLink
+            variant="primary-empty"
+            link={createUrl(currentCategory, currentPage - 1, search)}
+          >
+            Poprzednia
+          </ButtonLink>
 
           <span className="px-4 py-2">
             {currentPage} / {totalPages}
           </span>
 
-          {currentPage < totalPages && (
-            <ButtonLink
-              link={createUrl(currentCategory, currentPage + 1, search)}
-              variant="primary-empty"
-            >
-              Następna
-            </ButtonLink>
-          )}
+          <ButtonLink
+            link={createUrl(currentCategory, currentPage + 1, search)}
+            variant="primary-empty"
+          >
+            Następna
+          </ButtonLink>
         </div>
       )}
     </>

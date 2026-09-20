@@ -34,7 +34,7 @@ const SearchForm = ({ initialSearch, currentCategory }: Props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex gap-4 mb-8 mt-8 md:w-3xl">
+      <form onSubmit={handleSubmit} className="flex gap-4 mb-8 mt-4 md:w-3xl">
         <input
           type="text"
           value={search}
@@ -45,11 +45,10 @@ const SearchForm = ({ initialSearch, currentCategory }: Props) => {
 
         <Button message="Szukaj" variant="primary-empty" />
       </form>
-      {search && (
-        <p className="mt-8">
-          Wyniki wyszukiwania dla: <strong>{search}</strong>
-        </p>
-      )}
+
+      <p className={`mt-8 ${search ? "visible" : "invisible"}`}>
+        Wyniki wyszukiwania dla: <strong>{search}</strong>
+      </p>
     </>
   );
 };

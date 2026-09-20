@@ -1,9 +1,10 @@
-import BlogListItem from "@/components/shared/BlogListItem";
+import BlogListItem from "@/components/shared/blogItem/BlogListItem";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
 import SideBorder from "@/components/shared/SideBorder";
 import { Metadata } from "next";
 import { Post } from "./models/postModel";
+import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | strona główna",
@@ -91,14 +92,19 @@ export default async function HomePage() {
             }
           </ButtonLink>
         </div>
+        <SuspenseErrorBoundary
+          size="lg"
+          errorMessage="Błąd ładowania aktualności"
+          loadingMessage="Ładowanie aktualności"
+        >
+          <ul className="flex flex-col gap-4">
+            {posts.map((post) => {
+              const image = post._embedded?.["wp:featuredmedia"]?.[0];
 
-        <ul className="flex flex-col gap-4">
-          {posts.map((post) => {
-            const image = post._embedded?.["wp:featuredmedia"]?.[0];
-
-            return <BlogListItem post={post} image={image} />;
-          })}
-        </ul>
+              return <BlogListItem post={post} image={image} />;
+            })}
+          </ul>
+        </SuspenseErrorBoundary>
       </section>
       <section className="container">
         <h2 className="text-xl font-bold border-b-3 mb-10 pb-10">

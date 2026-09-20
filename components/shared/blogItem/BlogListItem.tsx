@@ -1,8 +1,9 @@
 import { formatDate } from "@/app/utils/formatDate";
-import ButtonLink from "./buttons/ButtonLink";
+import ButtonLink from "../buttons/ButtonLink";
 import Image from "next/image";
 import { Post } from "@/app/models/postModel";
 import { mapBlogCategories } from "@/data/mapBlogCategiries";
+import PostImage from "./PostImage";
 
 type Props = {
   post: Post;
@@ -17,14 +18,10 @@ const BlogListItem = ({ post, image }: Props) => {
         className="text-left flex flex-col md:flex-row gap-6 group"
       >
         {image ? (
-          <div className="relative h-100 md:w-150 md:h-auto shrink-0">
-            <Image
-              src={image.source_url}
-              alt={image.alt_text || post.title.rendered}
-              fill
-              className="object-cover"
-            />
-          </div>
+          <PostImage
+            src={image.source_url}
+            alt={image.alt_text || post.title.rendered}
+          />
         ) : (
           <div className="bg-white h-100 md:w-150 md:h-auto shrink-0 flex items-center justify-center">
             {" "}

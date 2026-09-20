@@ -71,11 +71,11 @@ const PostPage = async (props: Props) => {
           {<Icon icon={"arrow"} size={15} className={`bg-accent rotate-90`} />}
           Wróć do listy aktualności{" "}
         </ButtonLink>{" "}
-        <h2 className="font-bold text-2xl">{post.title.rendered}</h2>
-        <p className="text-xs text-gray-light">
+        <p className="text-xs text-gray-light mb-2">
           {formatDate(post.date)} /{" "}
           {mapBlogCategories[post.categories[0]] ?? "Inne"}
         </p>{" "}
+        <h1 className="font-bold text-2xl">{post.title.rendered}</h1>
         <div
           className="mt-10 mb-30  [&_p]:mb-6
     [&_h2]:text-2xl

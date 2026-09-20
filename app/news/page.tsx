@@ -73,6 +73,7 @@ import TopSection from "@/components/shared/TopSection";
 import { Post } from "../models/postModel";
 import NewsList from "./_components/NewsList";
 import { Metadata } from "next";
+import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
 
 export const metadata: Metadata = {
   title: "Zjednoczeni | Aktualności",
@@ -131,18 +132,23 @@ const NewsPage = async ({ searchParams }: Props) => {
         header="Komunikaty i sprawy związkowe"
         paragraph="Bieżące informacje o interwencjach, sporach zbiorowych i decyzjach, które dotyczą pracowników Elbest."
       />
-
-      <section>
-        <div className="container">
-          <NewsList
-            posts={posts}
-            currentCategory={category}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            search={search}
-          />
-        </div>
-      </section>
+      <SuspenseErrorBoundary
+        size="lg"
+        errorMessage="Błąd ładowania aktualności"
+        loadingMessage="Ładowanie aktualności"
+      >
+        <section>
+          <div className="container">
+            <NewsList
+              posts={posts}
+              currentCategory={category}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              search={search}
+            />
+          </div>
+        </section>
+      </SuspenseErrorBoundary>
     </>
   );
 };
