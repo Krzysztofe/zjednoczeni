@@ -1,5 +1,10 @@
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import TopSection from "@/components/shared/TopSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Zjednoczeni | Kontakt",
+};
 
 const ContactPage = () => {
   return (

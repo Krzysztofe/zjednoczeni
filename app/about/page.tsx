@@ -1,4 +1,9 @@
 import TopSection from "@/components/shared/TopSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Zjednoczeni | O związku",
+};
 
 const AboutPage = () => {
   return (

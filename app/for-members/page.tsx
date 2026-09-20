@@ -1,5 +1,10 @@
 import SideBorder from "@/components/shared/SideBorder";
 import TopSection from "@/components/shared/TopSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Zjednoczeni | Dla członków",
+};
 
 const ForMembersPage = () => {
   return (

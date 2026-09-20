@@ -2,7 +2,6 @@ import { Post } from "@/app/models/postModel";
 import { formatDate } from "@/app/utils/formatDate";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
-import TopSection from "@/components/shared/TopSection";
 import { mapBlogCategories } from "@/data/mapBlogCategiries";
 import { Metadata } from "next";
 
@@ -36,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `MZZP Zjednoczeni | ${post.title.rendered}`,
+    title: `Zjednoczeni | ${post.title.rendered}`,
   };
 }
 

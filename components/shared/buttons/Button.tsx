@@ -22,7 +22,7 @@ type Props = {
 const Button = (props: Props) => {
   return (
     <button
-      type={props.type ?? "button"}
+      type={props.type}
       onClick={props.onClickAction}
       disabled={props.disabled || props.isLoading}
       aria-label={props.ariaLabel}

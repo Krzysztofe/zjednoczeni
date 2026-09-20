@@ -1,14 +1,12 @@
-import { Metadata } from "next";
+import BlogListItem from "@/components/shared/BlogListItem";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
 import SideBorder from "@/components/shared/SideBorder";
+import { Metadata } from "next";
 import { Post } from "./models/postModel";
-import Image from "next/image";
-import { formatDate } from "./utils/formatDate";
-import BlogListItem from "@/components/shared/BlogListItem";
 
 export const metadata: Metadata = {
-  title: "MZZP Zjednoczeni | strona główna",
+  title: "Zjednoczeni | strona główna",
 };
 
 export default async function HomePage() {
