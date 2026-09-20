@@ -1,13 +1,17 @@
-import { formatDate } from "@/app/utils/formatDate";
-import ButtonLink from "../buttons/ButtonLink";
-import Image from "next/image";
 import { Post } from "@/app/models/postModel";
+import { formatDate } from "@/app/utils/formatDate";
 import { mapBlogCategories } from "@/data/mapBlogCategiries";
+import ButtonLink from "../buttons/ButtonLink";
 import PostImage from "./PostImage";
 
 type Props = {
   post: Post;
-  image: any;
+  image:
+    | {
+        source_url: string;
+        alt_text: string;
+      }
+    | undefined;
 };
 
 const BlogListItem = ({ post, image }: Props) => {
@@ -17,24 +21,7 @@ const BlogListItem = ({ post, image }: Props) => {
         link={`/news/${post.slug}`}
         className="text-left flex flex-col md:flex-row gap-6 group"
       >
-        {image ? (
-          <PostImage
-            src={image.source_url}
-            alt={image.alt_text || post.title.rendered}
-          />
-        ) : (
-          <div className="bg-white h-100 md:w-150 md:h-auto shrink-0 flex items-center justify-center">
-            {" "}
-            <Image
-              src="/icons/logoBlack.png"
-              alt="Logo"
-              width={150}
-              height={100}
-              priority
-              unoptimized
-            />
-          </div>
-        )}
+        <PostImage alt={image?.alt_text || post.title.rendered} image={image} />
 
         <div className="pb-20 md:w-1/2">
           <div></div>

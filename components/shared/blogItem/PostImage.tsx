@@ -4,11 +4,16 @@ import Image from "next/image";
 import { useState } from "react";
 
 type Props = {
-  src: string;
   alt: string;
+  image:
+    | {
+        source_url: string;
+        alt_text: string;
+      }
+    | undefined;
 };
 
-const PostImage = ({ src, alt }: Props) => {
+const PostImage = ({ image, alt }: Props) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
@@ -16,16 +21,32 @@ const PostImage = ({ src, alt }: Props) => {
       {!loaded && (
         <div className="absolute inset-0 animate-pulse bg-gray-light" />
       )}
-
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className={`object-cover transition-opacity duration-300 ${
-          loaded ? "opacity-100" : "opacity-0"
-        }`}
-        onLoad={() => setLoaded(true)}
-      />
+      {image ? (
+        <Image
+          src={image?.source_url}
+          alt={alt}
+          fill
+          className={`object-cover transition-opacity duration-300 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+          onLoad={() => setLoaded(true)}
+        />
+      ) : (
+        <div className="bg-white h-100 md:w-150 shrink-0 flex items-center justify-center">
+          <Image
+            src="/icons/logoBlack.png"
+            alt="Logo"
+            width={150}
+            height={100}
+            priority
+            unoptimized
+            className={`transition-opacity duration-300 ${
+              loaded ? "opacity-100" : "opacity-0"
+            }`}
+            onLoad={() => setLoaded(true)}
+          />
+        </div>
+      )}
     </div>
   );
 };
