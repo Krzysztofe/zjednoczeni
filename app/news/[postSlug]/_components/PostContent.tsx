@@ -12,7 +12,10 @@ const PostContent = async ({ postSlug }: Props) => {
   const response = await fetch(
     `${process.env.API_BASE_URL}/posts?slug=${postSlug}&_fields=id,slug,date,title,content,author,tags,categories`,
     {
-      cache: "no-store",
+      next: {
+        revalidate: false,
+        tags: [`post-${postSlug}`],
+      },
     },
   );
 

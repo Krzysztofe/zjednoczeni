@@ -34,7 +34,6 @@ export default async function HomePage() {
     console.error("Błąd pobierania postów na stronie głównej:", error);
     fetchFailed = true;
   }
-  console.log(posts);
 
   return (
     <>

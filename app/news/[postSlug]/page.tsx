@@ -10,6 +10,22 @@ export const metadata: Metadata = {
   title: "Zjednoczeni | Aktualności",
 };
 
+export async function generateStaticParams() {
+  const response = await fetch(
+    `${process.env.API_BASE_URL}/posts?per_page=100&_fields=slug`,
+  );
+
+  if (!response.ok) {
+    return [];
+  }
+
+  const posts: { slug: string }[] = await response.json();
+
+  return posts.map((post) => ({
+    postSlug: post.slug,
+  }));
+}
+
 const PostPage = async ({ params }: Props) => {
   const { postSlug } = await params;
 
