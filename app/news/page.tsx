@@ -1,74 +1,3 @@
-// import TopSection from "@/components/shared/TopSection";
-// import { Post } from "../models/postModel";
-// import NewsList from "./_components/NewsList";
-// import { Metadata } from "next";
-
-// export const metadata: Metadata = {
-//   title: "Zjednoczeni | Aktualności",
-// };
-
-// type Props = {
-//   searchParams: Promise<{
-//     category?: string;
-//     page?: string;
-//     search?: string;
-//   }>;
-// };
-
-// const NewsPage = async ({ searchParams }: Props) => {
-//   const params = await searchParams;
-
-//   const category = params.category ? Number(params.category) : null;
-
-//   const currentPage = Math.max(Number(params.page) || 1, 1);
-
-//   const queryParams = new URLSearchParams({
-//     per_page: "5",
-//     page: currentPage.toString(),
-//     _embed: "true",
-//   });
-
-//   if (category !== null) {
-//     queryParams.set("categories", category.toString());
-//   }
-
-//   const response = await fetch(
-//     `${process.env.API_BASE_URL}/posts?${queryParams.toString()}`,
-//     {
-//       cache: "no-store",
-//     },
-//   );
-
-//   if (!response.ok) return <div>Nie udało się pobrać postów.</div>;
-
-//   const posts: Post[] = await response.json();
-
-//   const totalPages = Number(response.headers.get("X-WP-TotalPages") || 0);
-
-//   return (
-//     <>
-//       <TopSection
-//         title="Aktualności"
-//         header="Komunikaty i sprawy związkowe"
-//         paragraph="Bieżące informacje o interwencjach, sporach zbiorowych i decyzjach, które dotyczą pracowników Elbest."
-//       />
-
-//       <section>
-//         <div className="container">
-//           <NewsList
-//             posts={posts}
-//             currentCategory={category}
-//             currentPage={currentPage}
-//             totalPages={totalPages}
-//           />
-//         </div>
-//       </section>
-//     </>
-//   );
-// };
-
-// export default NewsPage;
-
 import TopSection from "@/components/shared/TopSection";
 import { Post } from "../models/postModel";
 import NewsList from "./_components/NewsList";
@@ -110,20 +39,35 @@ const NewsPage = async ({ searchParams }: Props) => {
     queryParams.set("search", search);
   }
 
-  const response = await fetch(
-    `${process.env.API_BASE_URL}/posts?${queryParams.toString()}`,
-    {
-      cache: "no-store",
-    },
-  );
+  let posts: Post[] = [];
+  let totalPages = 0;
+  let fetchFailed = false;
 
-  if (!response.ok) {
-    return <div>Nie udało się pobrać postów.</div>;
+  try {
+    const response = await fetch(
+      `${process.env.API_BASE_URL}/posts?${queryParams.toString()}`,
+      {
+        next: {
+          revalidate: 60,
+          tags: ["posts", category ? `posts-cat-${category}` : "posts-all"],
+        },
+      },
+    );
+
+    if (!response.ok) {
+      fetchFailed = true;
+    } else {
+      posts = await response.json();
+      totalPages = Number(response.headers.get("X-WP-TotalPages") || 0);
+    }
+  } catch (error) {
+    console.error("Błąd pobierania postów z WP:", error);
+    fetchFailed = true;
   }
 
-  const posts: Post[] = await response.json();
-
-  const totalPages = Number(response.headers.get("X-WP-TotalPages") || 0);
+  if (fetchFailed) {
+    return <div>Nie udało się pobrać postów.</div>;
+  }
 
   return (
     <>

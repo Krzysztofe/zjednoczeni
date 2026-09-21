@@ -93,7 +93,6 @@ const NewsList = ({
       <ul className="flex flex-col gap-4">
         {posts.map((post) => {
           const image = post._embedded?.["wp:featuredmedia"]?.[0];
-
           return <BlogListItem key={post.id} post={post} image={image} />;
         })}
       </ul>

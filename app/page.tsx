@@ -11,18 +11,29 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const response = await fetch(
-    `${process.env.API_BASE_URL}/posts?per_page=5&_embed`,
-    {
-      cache: "no-store",
-    },
-  );
+  let posts: Post[] = [];
+  let fetchFailed = false;
 
-  if (!response.ok) {
-    throw new Error("Nie udało się pobrać postów.");
+  try {
+    const response = await fetch(
+      `${process.env.API_BASE_URL}/posts?per_page=5&_embed`,
+      {
+        next: {
+          revalidate: false,
+          tags: ["posts-latest"],
+        },
+      },
+    );
+
+    if (!response.ok) {
+      fetchFailed = true;
+    } else {
+      posts = await response.json();
+    }
+  } catch (error) {
+    console.error("Błąd pobierania postów na stronie głównej:", error);
+    fetchFailed = true;
   }
-
-  const posts: Post[] = await response.json();
   console.log(posts);
 
   return (
@@ -101,7 +112,7 @@ export default async function HomePage() {
             {posts.map((post) => {
               const image = post._embedded?.["wp:featuredmedia"]?.[0];
 
-              return <BlogListItem post={post} image={image} />;
+              return <BlogListItem key={post.id} post={post} image={image} />;
             })}
           </ul>
         </SuspenseErrorBoundary>
