@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 export async function generateStaticParams() {
   const response = await fetch(
     `${process.env.API_BASE_URL}/posts?per_page=100&_fields=slug`,
+    { next: { revalidate: false, tags: ["posts-all"] } },
   );
 
   if (!response.ok) {

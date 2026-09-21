@@ -28,6 +28,7 @@ export async function POST(request: NextRequest) {
   const { post_type, slug } = body;
 
   revalidateTag("posts-latest", "max");
+  revalidateTag("posts-all", "max");
 
   if (slug) {
     revalidatePath(`/news/${slug}`);
