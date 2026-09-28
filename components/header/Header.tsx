@@ -5,15 +5,15 @@ import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-20 bg-bg-dark">
+    <header className="sticky top-0 z-20 bg-white">
       <div className="container flex items-center justify-between">
         <Link href="/" className="block">
           <Image
-            src="/icons/logo.png"
+            src="/icons/logo-zjednoczeni.png"
             alt="Logo"
             width={150}
-            height={100}
-            className="w-[150px] h-auto"
+            height={70}
+            className="w-[110px] h-auto"
             priority
             unoptimized
           />

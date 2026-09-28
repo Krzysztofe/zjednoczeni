@@ -34,7 +34,7 @@ const PostImage = ({ image, alt }: Props) => {
       ) : (
         <div className="bg-white h-100 md:w-150 shrink-0 flex items-center justify-center">
           <Image
-            src="/icons/logoBlack.png"
+            src="/icons/logo-zjednoczeni.png"
             alt="Logo"
             width={150}
             height={100}
