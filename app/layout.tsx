@@ -12,7 +12,7 @@ const oswald = Oswald({
 
 export const metadata: Metadata = {
   title: "MZZP Zjednoczemi",
-  description: "Strona związku zawodowego MZZP Zjednoczemi",
+  description: "Strona związku zawodowego MZZP 'Zjednoczemi'",
 };
 
 export default function RootLayout({

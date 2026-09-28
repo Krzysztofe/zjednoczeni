@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-bg-dark">
       <div className="container text-white py-26 flex flex-col gap-20 sm:flex-row">
         <div className="sm:w-1/2 md:w-1/3">
-          <div className="font-bold">MZZP Zjednoczeni</div>
+          <div className="font-bold">MZZP "Zjednoczeni"</div>
           <div className="mt-6">
             Międzyzakładowy Związek Zawodowy Pracowników działający w grupie
             Elbest - ochrona, hotelarstwo, przedszkola zakładowe
@@ -25,7 +25,7 @@ const Footer = () => {
             className="flex gap-2 items-center"
           >
             {<Icon icon={"facebook"} size={20} className={`bg-white`} />}
-            MZZP Zjednoczeni
+            MZZP "Zjednoczeni"
           </ButtonLink>
         </div>
       </div>

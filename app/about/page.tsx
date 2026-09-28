@@ -11,7 +11,7 @@ const AboutPage = () => {
       <TopSection
         title="O związku"
         header="Powstaliśmy tam, gdzie nikt inny nie chciał działać"
-        paragraph="MZZP Zjednoczeni to międzyzakładowy związek zawodowy skupiający
+        paragraph="MZZP 'Zjednoczeni' to międzyzakładowy związek zawodowy skupiający
             pracowników spółki Elbest - ochroniarzy, personel hotelowy oraz
             pracowników przedszkoli zakładowych. Działamy niezależnie od
             pracodawcy i ponad podziałami stanowiskowymi."
