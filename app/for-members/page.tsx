@@ -69,7 +69,7 @@ const ForMembersPage = () => {
               </h3>
               <div>
                 Formularz dostępny jest w zakładce Dokumenty oraz u
-                przedstawicieli związku w Twoim zakładzie..
+                przedstawicieli związku w Twoim zakładzie.
               </div>
             </div>
           </div>
