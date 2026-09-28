@@ -18,7 +18,7 @@ const MobileMenu = () => {
       )}
       <Button
         className=""
-        icon={<Icon icon={"hamburger"} size={30} className={"bg-white"} />}
+        icon={<Icon icon={"hamburger"} size={30} className={"bg-black"} />}
         onClickAction={() => setOpen((prev) => !prev)}
         variant="ghost"
         ariaLabel={isOpen ? "Zamknij menu" : "Otwórz menu"}
@@ -26,12 +26,12 @@ const MobileMenu = () => {
       />
 
       <nav
-        className={`fixed bg-bg-dark top-0 right-0 z-40 h-screen  w-80 transform shadow-xl transition-transform duration-300 ease-in-out ${toggleClass} z-20 lg:hidden`}
+        className={`fixed bg-white top-0 right-0 z-40 h-screen  w-80 transform shadow-xl transition-transform duration-300 ease-in-out ${toggleClass} z-20 lg:hidden`}
       >
         {" "}
         <Button
           className="top-6 -right-60"
-          icon={<Icon icon={"xmark"} size={30} className={"bg-white"} />}
+          icon={<Icon icon={"xmark"} size={30} className={"bg-black"} />}
           onClickAction={() => setOpen((prev) => !prev)}
           variant="ghost"
           ariaLabel={isOpen ? "Zamknij menu" : "Otwórz menu"}

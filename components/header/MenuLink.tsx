@@ -19,7 +19,7 @@ const MenuLink = ({ text, link, onClick }: Props) => {
         link={link}
         className={`relative font-semibold 
           after:absolute after:-bottom-1 after:left-0 after:h-[1px]
-          after:bg-white after:transition-all after:duration-300
+          after:bg-black after:transition-all after:duration-300
           ${isActive ? "!text-accent" : "after:w-0 hover:after:w-full"}
         `}
       >
