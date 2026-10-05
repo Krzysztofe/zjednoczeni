@@ -59,7 +59,7 @@ const AboutPage = () => {
     after:rounded-full
     after:bg-accent"
             >
-              <div className="text-accent">2009</div>
+              <div className="text-accent">2015</div>
               <h3 className="font-bold my-4">Powstanie związku</h3>
               <p>
                 Grupa pracowników ochrony zakłada Międzyzakładowy Związek

@@ -68,11 +68,11 @@ export default async function HomePage() {
       </section>
       <section className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 py-10">
         <div className="p-10 border border-bg-dark border-l-0 border-r-0 sm:border-r">
-          <div className="text-accent text-xl">2009</div>
+          <div className="text-accent text-xl">2015</div>
           <div>rok powstania związku</div>
         </div>
         <div className="p-10 border border-bg-dark border-l-0 border-r-0 md:border-r">
-          <div className="text-accent text-xl">700+</div>
+          <div className="text-accent text-xl">600+</div>
           <div>reprezentowanych pracowników</div>
         </div>
         <div className="p-10 border border-bg-dark border-l-0 border-r-0 sm:border-r">
