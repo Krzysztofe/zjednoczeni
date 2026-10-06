@@ -61,6 +61,7 @@ const PostContent = async ({ postSlug }: Props) => {
           [&_ul]:pl-6
           [&_ol]:list-decimal
           [&_ol]:pl-6
+           [&_img]:mb-10
         "
         dangerouslySetInnerHTML={{
           __html: post.content.rendered,
