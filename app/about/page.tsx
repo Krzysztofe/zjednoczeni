@@ -1,4 +1,5 @@
 import TopSection from "@/components/shared/TopSection";
+import { historyPointsData } from "@/data/historyPoints";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -50,73 +51,23 @@ const AboutPage = () => {
             </div>
             <h2 className="font-bold text-lg mb-6">Oś czasu</h2>
 
-            <div
-              className="border-l-2 pl-10 py-10 relative after:absolute
+            {historyPointsData.map(({ year, title, description }) => {
+              return (
+                <div
+                  className="border-l-2 pl-10 py-10 relative after:absolute
     after:-left-[11px]
     after:top-11
     after:h-8
     after:w-8
     after:rounded-full
     after:bg-accent"
-            >
-              <div className="text-accent">2015</div>
-              <h3 className="font-bold my-4">Powstanie związku</h3>
-              <p>
-                Grupa pracowników ochrony zakłada Międzyzakładowy Związek
-                Zawodowy Pracowników „Zjednoczeni”, by mieć realny wpływ na
-                warunki zatrudnienia.
-              </p>
-            </div>
-            <div
-              className="border-l-2 pl-10 py-10 relative after:absolute
-    after:-left-[11px]
-    after:top-10
-    after:h-8
-    after:w-8
-    after:rounded-full
-    after:bg-accent"
-            >
-              <div className="text-accent">2017</div>
-              <h3 className="font-bold my-4">
-                Wspólne działania protestacyjne
-              </h3>
-              <p>
-                Udział w konferencjach prasowych i akcjach solidarnościowych z
-                pracownikami sektora energetycznego w regionie łódzkim.
-              </p>
-            </div>
-            <div
-              className="border-l-2 pl-10 py-10 relative after:absolute
-    after:-left-[11px]
-    after:top-10
-    after:h-8
-    after:w-8
-    after:rounded-full
-    after:bg-accent"
-            >
-              <div className="text-accent">2022</div>
-              <h3 className="font-bold my-4">Zmiana właściciela spółki</h3>
-              <p>
-                Elbest przechodzi pod Polski Holding Hotelowy. Związek zaczyna
-                monitorować, czy nowe zasady zatrudnienia są zgodne z prawem.
-              </p>
-            </div>
-            <div
-              className="border-l-2 pl-10 py-10 relative after:absolute
-    after:-left-[11px]
-    after:top-10
-    after:h-8
-    after:w-8
-    after:rounded-full
-    after:bg-accent"
-            >
-              <div className="text-accent">2024-2026</div>
-              <h3 className="font-bold my-4">Spór o układ zbiorowy</h3>
-              <p>
-                Sprzeciw wobec wypowiedzenia Zakładowego Układu Zbiorowego Pracy
-                i zawiadomienie Ministerstwa Aktywów Państwowych oraz KNF.
-              </p>
-            </div>
+                >
+                  <div className="text-accent">{year}</div>
+                  <h3 className="font-bold my-4">{title}</h3>
+                  <p>{description}</p>
+                </div>
+              );
+            })}
           </div>
           <div className=" mb-30">
             <div className="p-6 bg-white">
