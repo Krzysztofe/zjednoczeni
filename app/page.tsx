@@ -19,7 +19,7 @@ export default async function HomePage() {
       `${process.env.API_BASE_URL}/posts?per_page=5&_embed`,
       {
         next: {
-          revalidate: false,
+          revalidate: 60,
           tags: ["posts-latest"],
         },
       },
@@ -76,8 +76,8 @@ export default async function HomePage() {
           <div>reprezentowanych pracowników</div>
         </div>
         <div className="p-10 border border-bg-dark border-l-0 border-r-0 sm:border-r">
-          <div className="text-accent text-xl">3</div>
-          <div>branże: ochrona, hotelarstwo, edukacja</div>
+          <div className="text-accent text-xl">4</div>
+          <div>branże: ochrona, hotelarstwo, sektor publiczny, energetyka </div>
         </div>
         <div className="p-10 border border-bg-dark border-l-0 border-r-0">
           <div className="text-accent text-xl">24/7</div>
