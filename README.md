@@ -1,1 +1,1 @@
-[mzz](https://www.mzzp-zjednoczeni.pl/)
+https://www.mzzp-zjednoczeni.pl/
