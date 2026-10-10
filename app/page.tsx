@@ -44,7 +44,7 @@ export default async function HomePage() {
               <div className="text-2xl font-bold text-white">
                 Razem mamy głos. Osobno mamy tylko opinię.
               </div>
-              <div className="text-white mb-10">
+              <div className="text-white mb-10 mt-4 md:w-2/3">
                 MZZP „Zjednoczeni” reprezentuje pracowników ochrony, hoteli i
                 przedszkoli zakładowych w grupie Elbest. Pilnujemy, żeby zmiany
                 właścicielskie i restrukturyzacje nie odbywały się kosztem
