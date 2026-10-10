@@ -37,33 +37,37 @@ export default async function HomePage() {
 
   return (
     <>
-      <section>
-        <div className="container flex flex-col gap-10 py-10">
-          <div className="text-2xl font-bold">
-            Razem mamy głos. Osobno mamy tylko opinię.
+      <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center bg-no-repeat">
+        <div className="bg-black/50">
+          <div className="container flex flex-col gap-10 ">
+            <div className="md:w-2/3 py-10 md:px-20 md:py-40">
+              <div className="text-2xl font-bold text-white">
+                Razem mamy głos. Osobno mamy tylko opinię.
+              </div>
+              <div className="text-white mb-10">
+                MZZP „Zjednoczeni” reprezentuje pracowników ochrony, hoteli i
+                przedszkoli zakładowych w grupie Elbest. Pilnujemy, żeby zmiany
+                właścicielskie i restrukturyzacje nie odbywały się kosztem
+                ludzi.
+              </div>
+              <div className="flex flex-col md:flex-row gap-6">
+                <ButtonLink
+                  link={"for-members"}
+                  className="w-fit "
+                  variant="primary"
+                >
+                  Dołącz do związku
+                </ButtonLink>
+                <ButtonLink
+                  link={"/contact"}
+                  className="w-fit "
+                  variant="primary-empty"
+                >
+                  Zgłoś problem w pracy
+                </ButtonLink>
+              </div>
+            </div>
           </div>
-          <div>
-            MZZP „Zjednoczeni” reprezentuje pracowników ochrony, hoteli i
-            przedszkoli zakładowych w grupie Elbest. Pilnujemy, żeby zmiany
-            właścicielskie i restrukturyzacje nie odbywały się kosztem ludzi.
-          </div>
-          <div className="flex flex-col md:flex-row gap-6">
-            <ButtonLink
-              link={"for-members"}
-              className="w-fit "
-              variant="primary"
-            >
-              Dołącz do związku
-            </ButtonLink>
-            <ButtonLink
-              link={"/contact"}
-              className="w-fit "
-              variant="primary-empty"
-            >
-              Zgłoś problem w pracy
-            </ButtonLink>
-          </div>
-          <SideBorder />
         </div>
       </section>
       <section className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 py-10">
