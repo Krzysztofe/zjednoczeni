@@ -1,7 +1,6 @@
 import BlogListItem from "@/components/shared/blogItem/BlogListItem";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
-import SideBorder from "@/components/shared/SideBorder";
 import { Metadata } from "next";
 import { Post } from "./models/postModel";
 import SuspenseErrorBoundary from "@/components/shared/errors/SuspenseErrorBoundary";
