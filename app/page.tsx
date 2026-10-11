@@ -36,8 +36,8 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="bg-[url('/images/hero-img.jpg')] bg-cover bg-center bg-no-repeat">
-        <div className="bg-black/50">
+      <section className="bg-[url('/images/hero-img.webp')] bg-cover bg-center bg-no-repeat">
+        <div className="bg-black/60">
           <div className="container flex flex-col gap-10 ">
             <div className="md:w-2/3 py-10 md:px-20 md:py-40">
               <div className="text-2xl font-bold text-white">
