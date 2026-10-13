@@ -48,8 +48,10 @@ const NewsPage = async ({ searchParams }: Props) => {
       `${process.env.API_BASE_URL}/posts?${queryParams.toString()}`,
       {
         next: {
-          revalidate: 60,
-          tags: ["posts", category ? `posts-cat-${category}` : "posts-all"],
+          revalidate: 3600,
+          tags: category
+            ? ["posts-all", `posts-cat-${category}`]
+            : ["posts-all"],
         },
       },
     );

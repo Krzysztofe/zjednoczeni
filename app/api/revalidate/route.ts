@@ -30,6 +30,7 @@ export async function POST(request: NextRequest) {
   revalidateTag("posts-all", "max");
 
   if (slug) {
+    revalidateTag(`post-${slug}`, "max");
     revalidatePath(`/news/${slug}`);
   }
 

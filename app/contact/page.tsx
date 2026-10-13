@@ -28,7 +28,10 @@ const ContactPage = () => {
           </div>
           <div>
             <div className="pb-3 text-accent">ADRES</div>
-            <div>733 654 323</div>
+            <div>
+              UL. Czapliniecka 5 <br />
+              97-400 Bełchatów
+            </div>
           </div>
           <div>
             <div className="pb-3 text-accent">MEDIA SPOŁECZNOŚCIOWE</div>

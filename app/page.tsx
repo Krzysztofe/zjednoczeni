@@ -17,10 +17,7 @@ export default async function HomePage() {
     const response = await fetch(
       `${process.env.API_BASE_URL}/posts?per_page=5&_embed`,
       {
-        next: {
-          revalidate: 60,
-          tags: ["posts-latest"],
-        },
+        next: { revalidate: 3600, tags: ["posts-latest"] },
       },
     );
 

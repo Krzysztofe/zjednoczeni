@@ -3,6 +3,7 @@ import { formatDate } from "@/app/utils/formatDate";
 import ButtonLink from "@/components/shared/buttons/ButtonLink";
 import Icon from "@/components/shared/Icon";
 import { mapBlogCategories } from "@/data/mapBlogCategiries";
+import { notFound } from "next/navigation";
 
 type Props = {
   postSlug: string;
@@ -27,7 +28,7 @@ const PostContent = async ({ postSlug }: Props) => {
   const post = posts[0];
 
   if (!post) {
-    return <div>Wpis nie istnieje</div>;
+    return notFound();
   }
 
   return (

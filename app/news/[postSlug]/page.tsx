@@ -6,25 +6,95 @@ type Props = {
   params: Promise<{ postSlug: string }>;
 };
 
-export const metadata: Metadata = {
-  title: "Zjednoczeni | Aktualności",
+type WordPressPost = {
+  slug: string;
+  title: {
+    rendered: string;
+  };
+  excerpt: {
+    rendered: string;
+  };
 };
 
-export async function generateStaticParams() {
-  const response = await fetch(
-    `${process.env.API_BASE_URL}/posts?per_page=100&_fields=slug`,
-    { next: { revalidate: false, tags: ["posts-all"] } },
-  );
+async function getPostBySlug(postSlug: string): Promise<WordPressPost | null> {
+  try {
+    const response = await fetch(
+      `${process.env.API_BASE_URL}/posts?slug=${encodeURIComponent(postSlug)}&_fields=slug,title,excerpt`,
 
-  if (!response.ok) {
-    return [];
+      {
+        next: { revalidate: 3600, tags: [`post-${postSlug}`] },
+      },
+    );
+
+    if (!response.ok) return null;
+
+    const posts: WordPressPost[] = await response.json();
+
+    return posts[0] ?? null;
+  } catch (error) {
+    console.error("Błąd pobierania wpisu:", error);
+    return null;
+  }
+}
+
+function stripHtml(html: string): string {
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/ /g, " ")
+    .replace(/–/g, "–")
+    .replace(/’/g, "’")
+    .replace(/„/g, "„")
+    .replace(/”/g, "”")
+    .replace(/&/g, "&")
+    .replace(/"/g, '"')
+    .replace(/'/g, "'")
+    .trim();
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { postSlug } = await params;
+  const post = await getPostBySlug(postSlug);
+
+  if (!post) {
+    return {
+      title: "Zjedniczeni | Nie znaleziono wpisu",
+    };
   }
 
-  const posts: { slug: string }[] = await response.json();
+  const title = stripHtml(post.title.rendered);
+  const description = stripHtml(post.excerpt.rendered).slice(0, 160);
 
-  return posts.map((post) => ({
-    postSlug: post.slug,
-  }));
+  return {
+    title: ` Zjednoczeni | ${title}`,
+    description,
+  };
+}
+
+export async function generateStaticParams() {
+  const slugs: string[] = [];
+
+  try {
+    let page = 1;
+    let totalPages = 1;
+
+    do {
+      const response = await fetch(
+        `${process.env.API_BASE_URL}/posts?per_page=100&page=${page}&_fields=slug`,
+        { next: { revalidate: false, tags: ["posts-all"] } },
+      );
+
+      if (!response.ok) break;
+
+      totalPages = Number(response.headers.get("X-WP-TotalPages") || 1);
+      const posts: { slug: string }[] = await response.json();
+      slugs.push(...posts.map((post) => post.slug));
+      page++;
+    } while (page <= totalPages);
+  } catch (error) {
+    console.error("Błąd pobierania slugów wpisów:", error);
+  }
+
+  return slugs.map((slug) => ({ postSlug: slug }));
 }
 
 const PostPage = async ({ params }: Props) => {
