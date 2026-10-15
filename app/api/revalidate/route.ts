@@ -26,8 +26,8 @@ export async function POST(request: NextRequest) {
 
   const { post_type, slug } = body;
 
-  revalidateTag("posts-latest", "max");
-  revalidateTag("posts-all", "max");
+  revalidateTag("posts-latest", { expire: 0 });
+  revalidateTag("posts-all", { expire: 0 });
 
   if (slug) {
     revalidateTag(`post-${slug}`, "max");
